@@ -4,49 +4,21 @@ import sys
 import string
 import random
 
-def codeBook():
-    #It replaces the character
-    orig_list = []
-    orig_list = list(string.ascii_lowercase)
-    keys = []
+def encrypt(plaintext):
 
-    #while (len(string.ascii_lowercase)):
-    #while (range(0,25)):
-    i = 0
-    while (i < len(orig_list)):
-        keys.append(random.choice(string.punctuation))
-        i += 1
+    print("encrypted")
 
-    print('Orig:', orig_list)
-    print('Punct:', keys)
+    encrypted_text = plaintext [::-1]
 
-    encryptor = dict(zip(orig_list, keys))
+    return encrypted_text
 
-    print('Encryptor', encryptor)
+def inputCode():
 
-    decryptor = {}
+    plaintext = input("Please enter the plaintext to encrypt: ")
 
-    for k in encryptor:
-        x = encryptor[k]
-        decryptor[x] = k
+    encrypted_text = encrypt(plaintext)
 
-
-    print('Decryptor:', decryptor)
-
-    # for v in enc:
-    #
-    #
-    # #print('ENC:',enc)
-    #
-    # dec = {}
-    #
-    # for k in enc:
-    #     x = enc[k]
-    #     dec[x] = k
-    #
-    # print('ENC:',enc)
-    # print('DEC:',dec)
+    print("Thank you, the encrypted will be", encrypted_text)
 
 if __name__ == '__main__':
-    plaintext = 'hackers for charity'
-    codeBook()
+    inputCode()
