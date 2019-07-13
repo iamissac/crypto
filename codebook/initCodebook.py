@@ -21,6 +21,8 @@ def initCodeBook():
 
     print('Key List: ', key_list)
 
+    
+
     #Make an encryption dictionary with two lists above
     encryptor = dict(zip(orig_list, key_list))
 
