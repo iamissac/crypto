@@ -14,14 +14,11 @@ def initCodeBook():
 
     #Key list is randomly generated punctuation characters, 26.
     key_list = []
-    i = 0
-    while (i < len(orig_list)):
-        key_list.append(random.choice(string.punctuation))
-        i += 1
 
+    key_list = random.sample(string.punctuation, 26)
     print('Key List: ', key_list)
 
-    
+
 
     #Make an encryption dictionary with two lists above
     encryptor = dict(zip(orig_list, key_list))
@@ -40,8 +37,10 @@ def initCodeBook():
         x = encryptor[k]
         decryptor[x] = k
 
+
     # #Save the above dictionary(encryptor) to a json file
     dec_json = json.dumps(decryptor)
+    print("dec_json: ", dec_json)
     f = open("decryptor.json", "w")
     f.write(dec_json)
     f.close()
